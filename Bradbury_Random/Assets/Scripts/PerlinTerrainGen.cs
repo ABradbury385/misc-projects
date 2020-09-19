@@ -21,6 +21,7 @@ public class PerlinTerrainGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //set up terrain fields, fill height map and set heights
         myTerrainData = gameObject.GetComponent<TerrainCollider>().terrainData;
         worldSize = new Vector3(200, 50, 200);
         myTerrainData.size = worldSize;
@@ -38,6 +39,7 @@ public class PerlinTerrainGen : MonoBehaviour
     /// </summary>
     void PerlinGen()
     {
+        //increment each x and z value and add it to the height map
         float xOff = 0f;
         for(int i = 0; i < resolution; i++)
         {
