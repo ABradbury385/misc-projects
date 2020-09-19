@@ -34,8 +34,8 @@ public class PerlinTerrainGen : MonoBehaviour
     }
 
     /// <summary>
-    /// Purpose: Fill a height map with values using Perlin Noise
-    /// Limitations:
+    /// PerlinGen().
+    /// Purpose: Fill a height map with values using Perlin Noise.
     /// </summary>
     void PerlinGen()
     {

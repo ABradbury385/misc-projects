@@ -53,9 +53,52 @@ public class CameraSwitch : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// OnGUI()
+    /// Purpose: display information and directions for the user
+    /// </summary>
     private void OnGUI()
     {
-        
+        string descriptionLine = "";
+        Rect textbox = new Rect(5, 5, 300, 40);
+        //change description based on camera
+        //"Press 'c' key to change cameras"
+        //"Description"
+        switch(currentCameraIndex)
+        {
+            case 0:
+                descriptionLine = "Overhead view of the terrain";
+                GUI.Box(textbox, "Press the 'c' key to change cameras" +
+            "\n" + descriptionLine);
+                break;
+            case 1:
+                descriptionLine = "Side view of the terrain";
+                GUI.Box(textbox, "Press the 'c' key to change cameras" +
+            "\n" + descriptionLine);
+                break;
+            case 2:
+                descriptionLine = "Leaders close-up view";
+                GUI.Box(textbox, "Press the 'c' key to change cameras" +
+            "\n" + descriptionLine);
+                break;
+            case 3:
+                descriptionLine = "Horde close-up view";
+                GUI.Box(textbox, "Press the 'c' key to change cameras" +
+            "\n" + descriptionLine);
+                break;
+            case 4:
+                descriptionLine = "Horde mid view";
+                GUI.Box(textbox, "Press the 'c' key to change cameras" +
+            "\n" + descriptionLine);
+                break;
+            case 5:
+                descriptionLine = "First-person view";
+                GUI.Box(textbox, "Press the 'c' key to change cameras" +
+            "\n" + descriptionLine);
+                break;
+            default:
+                Debug.Log("Something went wrong when changing GUI Text!");  //catch problem with displaying IMGUI
+                break;
+        }
     }
 }
