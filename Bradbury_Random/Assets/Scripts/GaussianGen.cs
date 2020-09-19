@@ -12,13 +12,11 @@ public class GaussianGen : MonoBehaviour
 
     private GameObject[] leadersArray;
     public int numberOfLeaders = 8;
-    private TerrainData terrainData;
 
     // Start is called before the first frame update
     void Start()
     {
         leadersArray = new GameObject[numberOfLeaders];
-        terrainData = GetComponent<TerrainCollider>().terrainData;
 
         for(int i = 0; i < numberOfLeaders; i++)
         {
@@ -66,7 +64,7 @@ public class GaussianGen : MonoBehaviour
 
             float zOffset = i  * leaderGap + leadersArray[i].transform.position.z;
 
-            //retrieve height of terrain at position of each leader
+            //retrieve height of terrain at position of each leader, add y scale so that model is out of the ground
             float yOffset = Terrain.activeTerrain.SampleHeight(new Vector3(xOffset, 0, zOffset))
             + leadersArray[i].transform.localScale.y;     
 
