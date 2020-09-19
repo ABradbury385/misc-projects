@@ -58,11 +58,17 @@ public class GaussianGen : MonoBehaviour
         float leaderGap;
         for(int i = 0; i < numberOfLeaders; i++)
         {
-            leaderGap = leadersArray[i].transform.localScale.z / 2 + 1;
+            //space the leaders a certain distance apart based on z scale
+            leaderGap = 1.5f;
 
-            float xOffset = Random.Range(-1f, 1f) + leadersArray[i].transform.position.x;
-            float yOffset = leadersArray[i].transform.position.y;
-            float zOffset = (float) i  * leaderGap + leadersArray[i].transform.position.z;
+            //find x and z first so that terrain height can be found
+            float xOffset = Random.Range(-.5f, .5f) + leadersArray[i].transform.position.x;
+
+            float zOffset = i  * leaderGap + leadersArray[i].transform.position.z;
+
+            //retrieve height of terrain at position of each leader
+            float yOffset = Terrain.activeTerrain.SampleHeight(new Vector3(xOffset, 0, zOffset))
+            + leadersArray[i].transform.localScale.y;     
 
             leadersArray[i].transform.position = new Vector3(xOffset, yOffset, zOffset);
         }

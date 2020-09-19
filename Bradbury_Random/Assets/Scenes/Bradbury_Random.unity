@@ -121,27 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &65128517 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1714319209578349083, guid: 71322b72a21c08e4e852c7d7da24c906,
-    type: 3}
-  m_PrefabInstance: {fileID: 967053167}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &65128518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65128517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aa97c74aee14654d9796b4773984de9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myLeaderPrefab: {fileID: 4487961337627535805, guid: 2b94bd10a77f6b449a75bb1ade52a825,
-    type: 3}
-  numberOfLeaders: 8
 --- !u!1 &176622470
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,13 +197,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176622470}
-  m_LocalRotation: {x: -0, y: -0.6362964, z: -0, w: 0.77144474}
-  m_LocalPosition: {x: 88.57506, y: 13.671265, z: 80.26073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 100, y: 25, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -79.032005, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &358160367
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,13 +530,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796028056}
-  m_LocalRotation: {x: -0.31725585, y: -0, z: -0, w: 0.94834}
-  m_LocalPosition: {x: 88.57506, y: 13.671265, z: 80.26073}
+  m_LocalRotation: {x: 0.07437741, y: -0.6980145, z: 0.06673999, w: 0.7090765}
+  m_LocalPosition: {x: 68.39, y: 9.71, z: 70.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -36.994003, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.458, y: -89.153, z: -0.537}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,6 +731,7 @@ GameObject:
   - component: {fileID: 1683100529}
   - component: {fileID: 1683100528}
   - component: {fileID: 1683100531}
+  - component: {fileID: 1683100532}
   m_Layer: 0
   m_Name: Perlin Terrain
   m_TagString: Untagged
@@ -831,6 +811,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolution: 129
   perlinIncrement: 0.015
+--- !u!114 &1683100532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683100527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa97c74aee14654d9796b4773984de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myLeaderPrefab: {fileID: 4487961337627535805, guid: 2b94bd10a77f6b449a75bb1ade52a825,
+    type: 3}
+  numberOfLeaders: 8
 --- !u!1 &1906201322
 GameObject:
   m_ObjectHideFlags: 0
