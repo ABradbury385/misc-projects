@@ -18,16 +18,17 @@ public class RandomObjectGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //can be placed anywhere on the terrain
         worldSize = Terrain.activeTerrain.terrainData.size;
         rotation = new Quaternion();
 
         for(int i = 0; i < numberOfRandomObjects; i++)
         {
+            //x and z are random, y is based on terrain height
             float randomX = Random.Range(0f, worldSize.x);
             float randomZ = Random.Range(0f, worldSize.z);
 
-            float heightY = Terrain.activeTerrain.SampleHeight(new Vector3(randomX, 0, randomZ)) 
-                + myPrefab.transform.localScale.y/2;
+            float heightY = Terrain.activeTerrain.SampleHeight(new Vector3(randomX, 0, randomZ));
 
             pos = new Vector3(randomX, heightY, randomZ);
 
