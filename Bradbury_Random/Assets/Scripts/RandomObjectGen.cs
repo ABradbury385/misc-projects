@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author: Andrew Bradbury
+//Purpose: Create multiple instances of an object and place it randomly around the scene
 public class RandomObjectGen : MonoBehaviour
 {
     [SerializeField]
