@@ -11,6 +11,7 @@ public class GaussianGen : MonoBehaviour
     private GameObject myLeaderPrefab;
 
     private GameObject[] leadersArray;
+    [Range(8, 10)]
     public int numberOfLeaders = 8;
 
     // Start is called before the first frame update
