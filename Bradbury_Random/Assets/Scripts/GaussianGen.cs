@@ -13,16 +13,18 @@ public class GaussianGen : MonoBehaviour
     private GameObject[] leadersArray;
     [Range(8, 10)]
     public int numberOfLeaders = 8;
+    Quaternion rotation;
 
     // Start is called before the first frame update
     void Start()
     {
         leadersArray = new GameObject[numberOfLeaders];
+        rotation = Quaternion.Euler(0, 180, 0);
 
         for(int i = 0; i < numberOfLeaders; i++)
         {
             //create a new leader and calculate its scale
-            leadersArray[i] = Instantiate(myLeaderPrefab);
+            leadersArray[i] = Instantiate(myLeaderPrefab, myLeaderPrefab.transform.position,rotation);
             float scaleXAndZ = Gaussian(1f, .15f);
             float scaleY = Gaussian(1f, .20f);
 
