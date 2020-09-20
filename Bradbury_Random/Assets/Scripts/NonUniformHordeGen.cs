@@ -20,7 +20,7 @@ public class NonUniformHordeGen : MonoBehaviour
     void Start()
     {
         hordeSize = new Vector3(15, 10, 40);
-        rotation = new Quaternion();
+        rotation = Quaternion.Euler(0, 180, 0);
 
         for(int i = 0; i < numberInTheHorde; i++)
         {
@@ -59,8 +59,7 @@ public class NonUniformHordeGen : MonoBehaviour
             zOffset += myPrefab.transform.position.z;
 
             //y posiiton is based on height of the terrain
-            float yOffset = Terrain.activeTerrain.SampleHeight(new Vector3(xOffset, 0, zOffset))
-                + myPrefab.transform.localScale.y / 2;
+            float yOffset = Terrain.activeTerrain.SampleHeight(new Vector3(xOffset, 0, zOffset));
 
             pos = new Vector3(xOffset, yOffset, zOffset);
 

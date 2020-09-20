@@ -66,8 +66,7 @@ public class GaussianGen : MonoBehaviour
             float zOffset = i  * leaderGap + leadersArray[i].transform.position.z;
 
             //retrieve height of terrain at position of each leader, add y scale so that model is out of the ground
-            float yOffset = Terrain.activeTerrain.SampleHeight(new Vector3(xOffset, 0, zOffset))
-            + leadersArray[i].transform.localScale.y;     
+            float yOffset = Terrain.activeTerrain.SampleHeight(new Vector3(xOffset, 0, zOffset));     
 
             leadersArray[i].transform.position = new Vector3(xOffset, yOffset, zOffset);
         }
