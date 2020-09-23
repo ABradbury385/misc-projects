@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class RubyController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class RubyController : MonoBehaviour
     public float timeInvincible = 2.0f;
     bool isInvincible;
     float invincibleTimer;
+    SpriteRenderer rubySprite;
 
     public int Health { get { return currentHealth; } }
 
@@ -23,6 +25,7 @@ public class RubyController : MonoBehaviour
     {
         currentHealth = maxHealth;
         rigidbody2d = GetComponent<Rigidbody2D>();
+        rubySprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -35,8 +38,18 @@ public class RubyController : MonoBehaviour
         if(isInvincible)
         {
             invincibleTimer -= Time.deltaTime;
+
+            //make ruby flash grey while invincible
+            if (rubySprite.color == Color.white)
+                rubySprite.color = Color.grey;
+            else
+                rubySprite.color = Color.white;
+
             if (invincibleTimer < 0)
+            {
                 isInvincible = false;
+                rubySprite.color = Color.white;
+            }
         }
     }
 
