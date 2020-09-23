@@ -12,6 +12,10 @@ public class RubyController : MonoBehaviour
     float horizontal;
     float vertical;
 
+    public float timeInvincible = 2.0f;
+    bool isInvincible;
+    float invincibleTimer;
+
     public int Health { get { return currentHealth; } }
 
     // Start is called before the first frame update
@@ -26,6 +30,14 @@ public class RubyController : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");         //gets base Unity input controls (-1, 0, or 1)
         vertical = Input.GetAxis("Vertical");
+
+        //count down invincibility frames
+        if(isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+                isInvincible = false;
+        }
     }
 
     void FixedUpdate()
@@ -40,6 +52,16 @@ public class RubyController : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
+        if(amount < 0)
+        {
+            //if entering area during invincibility frames
+            if (isInvincible)
+                return;
+
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
+        }
+
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }
