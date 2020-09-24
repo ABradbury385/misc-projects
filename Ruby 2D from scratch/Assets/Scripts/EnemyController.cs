@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour
 
     Animator animator;
 
+    bool isBroken = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,10 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        //don't move if robot is not broken
+        if (!isBroken)
+            return;
+
         directionTimer -= Time.deltaTime;
 
         //after x seconds, change direction and reset timer
@@ -38,6 +44,10 @@ public class EnemyController : MonoBehaviour
     //call movement once every set rate
     void FixedUpdate()
     {
+        //don't move if robot is not broken
+        if (!isBroken)
+            return;
+
         Vector2 position = rigidbody2d.position;
         if (!vertical)
         {
@@ -70,4 +80,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    //fixes robot, needs to be public so projectile can access it
+    public void Fix()
+    {
+        isBroken = false;
+        rigidbody2d.simulated = false;      //projectiles go through robot and Ruby is not hurt
+        animator.SetTrigger("Fixed");       //he does a happy dance :)
+    }
 }

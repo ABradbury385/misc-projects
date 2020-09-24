@@ -21,6 +21,9 @@ public class RubyController : MonoBehaviour
     Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);      //need to store direction for animations
 
+    public GameObject projectilePrefab;
+    public float projectileForce = 300f;
+
     public int Health { get { return currentHealth; } }
 
     // Start is called before the first frame update
@@ -70,6 +73,12 @@ public class RubyController : MonoBehaviour
                 rubySprite.color = Color.white;
             }
         }
+
+        //fire projectile if user presses c key
+        if(Input.GetKeyDown("c"))
+        {
+            Launch();
+        }
     }
 
     void FixedUpdate()
@@ -97,5 +106,17 @@ public class RubyController : MonoBehaviour
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
+    }
+
+    void Launch()
+    {
+        //make a new projectile at Ruby's hands with no rotation
+        GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * .5f, Quaternion.identity);
+
+        //get projectile script and use it to call launch with Ruby's look direction and a force
+        Projectile projectile = projectileObject.GetComponent<Projectile>();
+        projectile.Launch(lookDirection, projectileForce);
+
+        animator.SetTrigger("Launch");      //play launch anim
     }
 }
