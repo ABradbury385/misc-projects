@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3947779302555760426}
   - component: {fileID: 3164178362810252291}
   - component: {fileID: 1119212803098292334}
+  - component: {fileID: 4630490397920062302}
   m_Layer: 0
   m_Name: Ruby
   m_TagString: Untagged
@@ -146,3 +147,22 @@ MonoBehaviour:
   maxHealth: 5
   moveSpeed: 3
   timeInvincible: 2
+--- !u!95 &4630490397920062302
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119212803098292329}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b77822e0485373d40b5beb92e9a5e728, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

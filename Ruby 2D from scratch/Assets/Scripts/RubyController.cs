@@ -18,6 +18,9 @@ public class RubyController : MonoBehaviour
     float invincibleTimer;
     SpriteRenderer rubySprite;
 
+    Animator animator;
+    Vector2 lookDirection = new Vector2(1, 0);      //need to store direction for animations
+
     public int Health { get { return currentHealth; } }
 
     // Start is called before the first frame update
@@ -26,6 +29,7 @@ public class RubyController : MonoBehaviour
         currentHealth = maxHealth;
         rigidbody2d = GetComponent<Rigidbody2D>();
         rubySprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,21 @@ public class RubyController : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");         //gets base Unity input controls (-1, 0, or 1)
         vertical = Input.GetAxis("Vertical");
+
+        Vector2 move = new Vector2(horizontal, vertical);
+
+        if(!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        {
+            //if move x or move y don't equal (approximately) 0, Ruby is moving, set look direction and normalize (magnitue is 1)
+            //if she is not moving, look direction remains as direction she last looked in
+            lookDirection.Set(move.x, move.y);  //could be lookDirection = move;
+            lookDirection.Normalize();
+        }
+
+        //set parameters in animator to look direction and speed
+        animator.SetFloat("Look X", lookDirection.x);               //set to lookDirection instead of move vector (this will break anims if not right)
+        animator.SetFloat("Look Y", lookDirection.y);               //set to lookDirection instead of move vector
+        animator.SetFloat("Speed", move.magnitude);
 
         //count down invincibility frames
         if(isInvincible)
@@ -73,6 +92,7 @@ public class RubyController : MonoBehaviour
 
             isInvincible = true;
             invincibleTimer = timeInvincible;
+            animator.SetTrigger("Hit");         //play hit anim when taing damage
         }
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
