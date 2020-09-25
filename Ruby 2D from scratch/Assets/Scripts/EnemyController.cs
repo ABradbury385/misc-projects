@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
 
     bool isBroken = true;
 
+    public ParticleSystem smokeEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,5 +88,6 @@ public class EnemyController : MonoBehaviour
         isBroken = false;
         rigidbody2d.simulated = false;      //projectiles go through robot and Ruby is not hurt
         animator.SetTrigger("Fixed");       //he does a happy dance :)
+        smokeEffect.Stop();                 //stop smoking, looks more natural than Destroy
     }
 }

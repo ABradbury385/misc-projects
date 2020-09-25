@@ -150,6 +150,10 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4127398735240273797, guid: 786f689f1af4cb540bb9fb0bf2401355,
     type: 3}
   projectileForce: 600
+  hurtEffect: {fileID: 7593468815211957513, guid: 43fd475702a62244a918c8725ced8fc2,
+    type: 3}
+  healthEffect: {fileID: 5481227715368766233, guid: 71770a21b64f7144c874cbe4d21f697c,
+    type: 3}
 --- !u!95 &4630490397920062302
 Animator:
   serializedVersion: 3
