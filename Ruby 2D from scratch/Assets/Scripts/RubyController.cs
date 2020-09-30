@@ -82,6 +82,16 @@ public class RubyController : MonoBehaviour
         {
             Launch();
         }
+
+        //try to talk when user presses x key
+        if(Input.GetKeyDown("x"))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * .2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if(hit.collider != null)
+            {
+                Debug.Log("Raycast has hit the object " + hit.collider.gameObject);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -116,7 +126,7 @@ public class RubyController : MonoBehaviour
         }
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log(currentHealth + "/" + maxHealth);
+        UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);        //change health bar
     }
 
     void Launch()
