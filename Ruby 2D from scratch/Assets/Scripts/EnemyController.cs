@@ -19,12 +19,16 @@ public class EnemyController : MonoBehaviour
 
     public ParticleSystem smokeEffect;
 
+    public AudioClip fixedClip;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         directionTimer = changeTime;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -89,5 +93,11 @@ public class EnemyController : MonoBehaviour
         rigidbody2d.simulated = false;      //projectiles go through robot and Ruby is not hurt
         animator.SetTrigger("Fixed");       //he does a happy dance :)
         smokeEffect.Stop();                 //stop smoking, looks more natural than Destroy
+        PlaySound(fixedClip);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

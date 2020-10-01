@@ -29,6 +29,10 @@ public class RubyController : MonoBehaviour
 
     public int Health { get { return currentHealth; } }
 
+    private AudioSource audioSource;
+    public AudioClip throwSound;
+    public AudioClip hurtSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +40,7 @@ public class RubyController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         rubySprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -81,6 +86,7 @@ public class RubyController : MonoBehaviour
         if(Input.GetKeyDown("c"))
         {
             Launch();
+            PlaySound(throwSound);
         }
 
         //try to talk when user presses x key
@@ -122,6 +128,7 @@ public class RubyController : MonoBehaviour
             animator.SetTrigger("Hit");         //play hit anim when taing damage
 
             Instantiate(hurtEffect, rigidbody2d.position + Vector2.up *2, Quaternion.identity);
+            PlaySound(hurtSound);
         }
 
         if(amount > 0)
@@ -144,5 +151,11 @@ public class RubyController : MonoBehaviour
         projectile.Launch(lookDirection, projectileForce);
 
         animator.SetTrigger("Launch");      //play launch anim
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        //play audio once
+        audioSource.PlayOneShot(clip);
     }
 }
