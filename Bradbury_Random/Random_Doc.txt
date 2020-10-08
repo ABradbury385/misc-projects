@@ -1,0 +1,29 @@
+Andrew Bradbury
+Random
+
+Description: 
+This project creates a random height terrain populated by various critters and props. The critters are found near the center
+of the world, with a line of spiky blue-shelled leaders and a horde of red slimes behind them. Glowing mushrooms are 
+scattered about a terrain for the player to explore using different camera views!
+
+User Responsibilities:
+The user can use the "c" key to change between multiple camera views of the world. The 6th camera is a first-person camera
+where the user can move around using WASD and pan the camera by moving their mouse(see known issues).
+
+Additional Features:
+I added a different skybox that changes the atmosphere to night time and dimmed the directional world light to compensate.
+Lightposts and trees with lamps on them are placed around the world to make the terrain feel a little more alive. 
+I also placed collsion boxes around the terrain so that the player cannot fall off of the world while in the 
+first-person camera.
+
+Known Issues:
+-The overhead camera can be panned vertically and the first person camera cannot pan up or down. 
+Reinstalling fixes the issue in the Unity Editor but building recreates the issue.
+-There is no in-game way to close the .exe file, I had to minimize the tab and close it from there.
+
+Sources:
+-Glowing Forest Pack by SkythianCat from Unity Asset Store (lightposts, night skybox, grass, dirt, mushrooms, trees)
+https://assetstore.unity.com/packages/3d/environments/fantasy/glowing-forest-79686
+-Slime and Spiky Shell monster by Dugeon Mason in Unity Asset Store
+https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-duo-pbr-polyart-157762
+-FPS Controller: https://github.com/IGME-202/igme202-FPSController
