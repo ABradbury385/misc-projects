@@ -1,0 +1,27 @@
+Andrew Bradbury
+Ruby2d RPG
+
+Description: 
+This project takes place in a 2D world inhabited by Ruby the fox, a townsmember and a few robots. The robots have recently
+gone haywire, and the town needs your help to fix all of the robots!
+
+User Responsibilities:
+The user can move around using WASD or the arrow keys. By pressing the 'c' key, Ruby launches a cog, which can fix robots
+if it hits them! Ruby can talk to the frog NPC by pressing the 'x' key while near him.
+
+Additional Features:
+-There are spikes located around the world that hurt Ruby if she touches them
+-The world is bounded on all sides by water, which Ruby cannot pass
+-The camera pans with Ruby as she moves around the world
+-There are 2 health collectibles located around the world in case Ruby is hurt
+-A neat UI that displays Ruby's health and scales with screen size
+-A froggy friend that gives Ruby her quest to fix the robots
+
+Known Issues:
+-Launching a cog and moving in the opposite direction of where the cog was first launched results in Ruby turning around
+while still in the throwing animation.
+-There is no in-game way to close the .exe file, Alt + F4 is advised.
+
+Sources:
+All art and assets are made by Unity Technologies on the Unity Asset Store
+https://assetstore.unity.com/packages/essentials/tutorial-projects/2d-beginner-complete-project-140253
