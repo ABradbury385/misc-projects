@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 moveVelocity;
     private Vector2 direction;
+    public bool smoothMovement = false;
 
     public float teleportDist;                  //how far to teleport
     public float teleportCoolDown;              //cooldown in seconds
@@ -28,7 +29,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 moveInput;
+
+        if (smoothMovement)
+        {
+            moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
+
+        else
+        {
+            moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
+        
         moveVelocity = moveInput.normalized * speed;
         direction = moveVelocity.normalized;
 
